@@ -1,0 +1,48 @@
+@use 'variables' as v;
+
+
+h1,h2,h3{
+  font-family: v.$fuente_principal;
+  margin: 0 0 v.$separacion 0;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+}
+h1{
+  font-size: 4rem;
+}
+h2{
+  color: v.$primario;
+  font-size: 3.6rem;
+
+  span{
+    display: block;     //forza un salto de linea
+    font-size: 1.8rem;
+    color: v.$secundario;
+  }
+  &::after{
+    content: '';
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    background-image: url(../../img/img/cafe.svg);
+    margin: 0 auto;   //centramos la imagen
+    background-size: 10rem;     //el tamanio de la imagen del background se ajustara al width y al height de 10rem
+  }
+
+}
+h3{
+font-size: 3.2rem;
+}
+
+.heading-blanco{    //heredara propiedades del h2
+  @extend h2;
+  color: v.$blanco;
+
+  span{
+    color: v.$blanco;
+  }
+  &::after{
+    display: none;
+  }
+}

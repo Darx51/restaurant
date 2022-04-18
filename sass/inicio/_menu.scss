@@ -1,0 +1,51 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.nuestro-menu{
+  background-image: url(../../img/img/menu_arriba.svg), url(../../img/img/menu_abajo.svg), linear-gradient(to top, v.$primario, v.$primario);
+  background-repeat: no-repeat;
+  background-position: center 5rem, center 92%, 100%; //el 1er valor se refiere a la imagen de arriba estara despegada 5rem, la 2da a la imagen de abajo estara al 92% en vertical
+  padding: 15rem 3rem 20rem 3rem;   //es el espacio detodo el texto
+  background-size: 200%;
+
+  @include m.tablet{
+    padding: 15rem 0 20rem 0;
+    background-size: 100%;
+
+  }
+  @include m.desktop{
+    background-size: 50%, 50%, 100%;    //tenemos 50% para la 1ra imagen, 50% para la 2da y 100% para el linear gradient
+  }
+
+}
+
+.grid-menu{
+  @include m.tablet { 
+    @include m.grid(2,1fr);
+  }
+}
+
+.menu{
+  h3{
+    color: v.$blanco;
+  }
+  li{
+    display: flex;
+    justify-content: space-between;
+    p{
+      color: v.$blanco;
+      font-size: 2.2rem;
+      text-align: left;
+      line-height: 1.5;
+      margin: 0 0 2rem 0;
+      span{
+        display: block;   //el span que contiene la descripcion de cada producto con display block generara un salto de linea, el precio como no esta dentro de un span se quedara donde mismo y este no hara salto de linea
+        color: v.$secundario;
+      }
+    }
+    .precio{
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  }
+}

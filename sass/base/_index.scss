@@ -1,0 +1,6 @@
+//aqui van todos los archivos de sass
+@forward 'normalize'; //@forward solo incluye los archivos 
+@forward 'variables'; //@forward solo incluye los archivos 
+@forward 'globales';                        //@para que otros archivos despues los utilicen
+@forward 'tipografia';                        //@import y @use aparte de incluirlos tambien los utilizaran
+@forward 'mixins';

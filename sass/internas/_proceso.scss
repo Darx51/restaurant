@@ -1,0 +1,57 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.proceso-cafe{
+  margin-bottom: v.$separacion;   //separa las imagenes
+  @include m.tablet{
+    display: flex;
+    gap: 3rem;
+    align-items:center;    //alinea verticalmente
+  }
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+
+  &:nth-child(2),     //tambien pude ponerle &:nth-child(even) y aplicara los cambios a todos los elementos pares y con (odd) para numeros impares
+  &:nth-child(4){
+    .texto{
+      order: 1;
+    }
+    .imagen{      //este lo podiamos haber evitado poniendo solo -1 al texto para order siempre debe estar flexbox como padre
+      order: 2;
+    }
+  }
+
+  .imagen,.texto{
+    flex: 1;      //la columna de imagen y de texto mediran lo mismo
+  }
+
+  .imagen{
+   // width: 10rem;
+    //align-items: center;
+    //height: 5rem;
+    img{
+      height: auto;
+     // width: auto;
+    }
+  }
+  .texto{
+    margin-top: 1rem;   //me separa el texto de la imagen
+    h3{
+      margin: 0;
+      text-align: left;
+      color: v.$primario;
+
+      &::after{             //crea la linea bajo del texto
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: v.$secundario;
+      }
+      p{
+        font-size: small;
+      }
+    }
+  }
+}

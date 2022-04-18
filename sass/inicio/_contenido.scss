@@ -1,0 +1,14 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.contenido-principal{
+  background-color: v.$blanco;
+  padding: 5rem  2rem;      //separo donde el contenido que dice conoce mas del header
+  font-size: medium;
+  
+  @include m.tablet { 
+    padding:10rem;
+    margin-top: -6rem;       //indica que entrara al header
+    position: relative;       //traemos hacia adelante por encima del header 
+   }
+}
